@@ -3,11 +3,11 @@
 
 ## Install 
 ```sh
-	$ (sudo) yarn add twitter-bot
+	$ (sudo) yarn add rtwitter-bot
 
 	# OR
 
-	$ (sudo) npm install twitter-bot --save
+	$ (sudo) npm install rtwitter-bot --save
 ```
 
 
