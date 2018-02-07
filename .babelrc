@@ -1,13 +1,9 @@
 {
   "presets": [
-    ["env", {
-      "es2015": {
-        "loose": true
-      }
-    }],
-    "react"
+    ["env"]
   ],
   "plugins": [
-    "transform-runtime"
+    "transform-runtime",
+    "transform-async-to-generator"
 	]
 }
