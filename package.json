@@ -1,5 +1,5 @@
 {
-  "name": "@rawnly/twitter-bot",
+  "name": "rtwitter-bot",
   "version": "0.0.1",
   "main": "build/Bot.js",
   "license": "MIT",
