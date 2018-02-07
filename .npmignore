@@ -1,0 +1,5 @@
+build
+.DS_Store
+my-config.json
+npm-error.log
+yarn-error.log
