@@ -66,9 +66,9 @@ export default class TwitterBot {
 	// Tweet a new status
 	tweet(status, callback) {
 		if ( typeof status !== 'string' ) {
-			callback(new SyntaxError(`Expected string. Got: ${typeof status}`))
+			callback(new SyntaxError(`Expected string. Got: ${typeof status}`));
 		} else if ( status.length > 280 ) {
-			callback(new Error(`Too many characters! ${status.length}/280`))
+			callback(new Error(`Too many characters! ${status.length}/280`));
 		}
 
 		this.twit.post('statuses/update', { status }, callback);
@@ -100,27 +100,24 @@ export default class TwitterBot {
 	}
 
 	// Retweet
-	retweet(id) {
-		if ( typeof status !== 'string' ) return callback(new SyntaxError(`Expected string. Got: ${typeof status}`))
-		if ( status.length > 280 ) return	callback(new Error(`Too many characters! ${status.length}/280`))
-
+	retweet(id, callback) {
 		this.twit.post('statuses/retweet', { id }, callback);
 	}
 
 	// Search something
 	search(q, callback, { lang = 'en', result_type = 'recent'} = {}) {
-		if ( typeof q !== 'string' ) return callback(new SyntaxError(`Expected string. Got: ${typeof status}`))
+		if ( typeof q !== 'string' ) return callback(new SyntaxError(`Expected string. Got: ${typeof status}`));
 		this.twit.get('search/tweets', {q, lang, result_type}, callback);
 	}
 
 	// Follow specific user
 	follow(id, callback) {
-		this.twit.post('friendships/create', { id }, callback)
+		this.twit.post('friendships/create', { id }, callback);
 	}
 
 	// Unfollow specific user
 	unfollow(id, callback) {
-		this.twit.post('friendships/destroy', { id }, callback)
+		this.twit.post('friendships/destroy', { id }, callback);
 	}
 
 	// Get followers
@@ -139,7 +136,7 @@ export default class TwitterBot {
 			if ( err ) return callback(err);
 
 			callback(err, res.ids.includes(id));
-		})
+		});
 	}
 
 	// Unfollow all people that doesn't follows you. | Prune friends..
@@ -157,10 +154,10 @@ export default class TwitterBot {
 						unfollowed.push(user);
 						this.unfollow(user);
 					}
-				})
+				});
 
 				callback(err, unfollowed);
-			})
-		})
+			});
+		});
 	}
 }
